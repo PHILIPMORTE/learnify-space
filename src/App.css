@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Kills the ugly white vertical scrollbar line and makes it sleek */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505; 
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6; /* Neon Blue Hover */
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #050505; /* Deep Hacker Black */
+  
+  /* ADDED: Subtle futuristic background grid */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  
+  color: #f8fafc;
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 5%;
+  background: rgba(5, 5, 5, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo { 
+  font-size: 1.8rem; 
+  font-weight: 800; 
+  letter-spacing: -1px; 
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links { 
+  display: flex; 
+  align-items: center; 
+  gap: 2.5rem; 
+}
+
+.nav-links a { 
+  color: #a1a1aa; 
+  font-weight: 500; 
+  text-decoration: none; 
+  transition: all 0.3s ease; 
+}
+
+.nav-links a:hover { 
+  color: #ffffff; 
+  text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.login-btn {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white !important;
+  padding: 0.7rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10rem 2rem;
+  background: radial-gradient(circle at top center, rgba(37, 99, 235, 0.15) 0%, #050505 60%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hero h2 {
+  font-size: 4.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+}
+
+.hero p { 
+  font-size: 1.25rem; 
+  color: #a1a1aa; /* Fixed the hex code to a sleek light gray! */
+  max-width: 600px; 
+  line-height: 1.6; 
+  font-weight: 300;
+}
+
+.course-section { 
+  padding: 6rem 5%; 
+  max-width: 1400px; 
+  margin: 0 auto; 
+  width: 100%; 
+  flex-grow: 1; 
+}
+
+.course-section h2 { 
+  font-size: 2.5rem; 
+  color: #ffffff; 
+  margin-bottom: 3rem; 
+  font-weight: 700; 
+  letter-spacing: -0.5px;
+}
+
+.course-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); 
+  gap: 2.5rem; 
+}
+
+.course-card {
+  background: rgba(24, 24, 27, 0.6);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.course-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  background: rgba(24, 24, 27, 0.9);
+}
+
+.course-card:hover::before {
+  opacity: 1;
+}
+
+.course-image { 
+  width: 100%; 
+  height: 240px; 
+  object-fit: cover; 
+}
+
+.course-content { 
+  padding: 2rem; 
+  display: flex; 
+  flex-direction: column; 
+  flex-grow: 1; 
+}
+
+.course-content h3 { 
+  font-size: 1.4rem; 
+  color: #ffffff; 
+  margin-bottom: 0.5rem; 
+  font-weight: 700; 
+}
+
+.instructor { 
+  font-size: 0.9rem; 
+  color: #60a5fa; 
+  margin-bottom: 1.2rem; 
+  font-weight: 600; 
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+}
+
+.description { 
+  font-size: 1rem; 
+  color: #a1a1aa; 
+  margin-bottom: 2rem; 
+  line-height: 1.6; 
+  flex-grow: 1; 
+  font-weight: 300;
+}
+
+.start-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.start-btn:hover { 
+  background-color: #3b82f6; 
+  color: white; 
+  border-color: #3b82f6; 
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Takes full height */
+  background: radial-gradient(circle at center, #111827 0%, #050505 100%);
+  padding: 2rem;
+}
+
+.auth-box {
+  background: rgba(24, 24, 27, 0.8);
+  backdrop-filter: blur(20px);
+  padding: 3.5rem;
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+  width: 100%;
+  max-width: 450px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-box::after {
+  content: '';
+  position: absolute;
+  top: -50px; right: -50px;
+  width: 150px; height: 150px;
+  background: #3b82f6;
+  filter: blur(80px);
+  opacity: 0.15;
+  z-index: -1;
+}
+
+.auth-box h2 { 
+  text-align: center; 
+  color: #ffffff; 
+  margin-bottom: 2.5rem; 
+  font-size: 2rem; 
+  font-weight: 800; 
+  letter-spacing: -0.5px;
+}
+
+.auth-form { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 1.5rem; 
+}
+
+.auth-input {
+  padding: 1.2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  font-family: inherit;
+}
+
+.auth-input::placeholder { color: #52525b; }
+
+.auth-input:focus { 
+  border-color: #3b82f6; 
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15); 
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.auth-submit {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+  padding: 1.2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+}
+
+.auth-submit:hover { 
+  transform: translateY(-2px); 
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4); 
+}
+
+.auth-toggle { 
+  text-align: center; 
+  margin-top: 2rem; 
+  color: #a1a1aa; 
+  font-size: 0.95rem; 
+}
+
+.auth-toggle span { 
+  color: #60a5fa; 
+  cursor: pointer; 
+  font-weight: 600; 
+  transition: all 0.2s; 
+}
+
+.auth-toggle span:hover { 
+  color: #93c5fd; 
+  text-decoration: underline; 
+  text-shadow: 0 0 10px rgba(147, 197, 253, 0.4);
+}
+
+.error-msg { 
+  color: #ef4444; 
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center; 
+  font-size: 0.95rem; 
+  margin-bottom: 1.5rem; 
+  font-weight: 500; 
+}
