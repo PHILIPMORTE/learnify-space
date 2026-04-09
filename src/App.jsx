@@ -3,6 +3,8 @@ import { Routes, Route, Navigate, Link } from 'react-router-dom'
 import { supabase } from './supabaseClient'
 import Home from './pages/Home'
 import Login from './pages/Login'
+// --- ADD THIS IMPORT BELOW ---
+import MyCourses from './pages/MyCourses' 
 import './App.css'
 
 function App() {
@@ -24,16 +26,17 @@ function App() {
   if (loading) {
     return <div style={{ color: 'white', textAlign: 'center', marginTop: '20vh' }}>Loading...</div>
   }
+
   if (!session) {
     return (
       <div className="app-container">
         <Routes>
-          {/* Any URL they type will force them to the Login screen */}
           <Route path="*" element={<Login />} />
         </Routes>
       </div>
     )
   }
+
   return (
     <div className="app-container">
       <header className="navbar">
@@ -54,9 +57,10 @@ function App() {
       </header>
 
       <main>
-        <Routes>
+        <Routes>        
+          {/* Make sure session is passed to MyCourses so it knows WHOSE courses to fetch */}
+          <Route path="/my-courses" element={<MyCourses session={session} />} />
           <Route path="/" element={<Home session={session} />} />
-          {/* If they type a weird URL while logged in, send them Home */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>

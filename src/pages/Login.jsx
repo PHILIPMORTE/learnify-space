@@ -29,7 +29,7 @@ function Login() {
   return (
     <div className="auth-container">
       <div className="auth-box">
-        <h2>{isSignUp ? 'Create an Account' : 'Welcome Back'}</h2>
+        <h2>{isSignUp ? 'Create an Account' : 'Welcome'}</h2>
         
         {errorMsg && <p className="error-msg">{errorMsg}</p>}
         

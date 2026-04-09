@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { supabase } from '../supabaseClient'
 import CourseCard from '../components/CourseCard'
 
-
 function Home({ session }) {
   const [courses, setCourses] = useState([])
   const [loading, setLoading] = useState(true)
@@ -26,9 +25,9 @@ function Home({ session }) {
   return (
     <>
       <section className="hero">
-        <h2>{session ? 'Welcome back to Learnify Space!' : 'Master Your Future'}</h2>
+        <h2>{session ? 'Welcome Future Programmerz' : 'Master Your Future'}</h2>
         <p>Learn from world-class instructors and expand your technical skill set with our premium coding courses.</p>
-      </section>
+      </section> 
 
       <section className="course-section">
         <h2>Explore Available Courses</h2>
@@ -44,7 +43,7 @@ function Home({ session }) {
             ) : (
               <p>No courses found. Check your database!</p>
             )}
-          </div>
+          </div>  
         )}
       </section>
     </>
